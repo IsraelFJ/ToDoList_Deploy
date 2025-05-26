@@ -1,0 +1,65 @@
+/* src\pages\welcome\styles.css */
+.home-container {
+    width: 100vw; /* 100% da largura da viewport */
+    height: 100vh; /* 100% da altura da viewport */
+    background-image: url('../../assets/images/backgorund.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.home-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.home-container p {
+    font-size: 1.2rem;
+}
+
+.link-usuarios {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+button {
+    background-color: #003366; /* Azul escuro, estilo Broncos */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto; /* Impede de ocupar 100% */
+    max-width: 300px; /* Evita exageros */
+    display: inline-block;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #003366;
+    font-family: Arial, sans-serif;
+    font-size: 100px;
+}
+input{
+    
+    border: none;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: auto; /* Impede de ocupar 100% */
+    max-width: 300px; /* Evita exageros */
+    display: inline-block;
+    display: flex;
+    gap: 5px;
+}
