@@ -19,7 +19,7 @@ function FormularioCadastro() {
 
     const cadastrarUsuario = async () => {
         try {
-            const response = await axios.post('https://back-deploy-7q2n.onrender.com/usuarios', {
+            const response = await axios.post('https://todolist-deploy-vinp.onrender.com', {
                 username, email, senha, confSenha, nomeCompleto 
             });
             exibirMensagem(response.data.mensagem || 'Usuário cadastrado com sucesso!', 'sucesso');
