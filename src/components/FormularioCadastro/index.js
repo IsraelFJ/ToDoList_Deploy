@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './styles.css'
+import './styles.css';
 import { useNavigate } from "react-router-dom";
 import useMensagem from '../../hooks/useMensagem';
 import MensagemFeedback from '../MensagemFeedback';
@@ -8,27 +8,27 @@ import axios from 'axios';
 
 function FormularioCadastro() {
     const [username, setUserName] = useState('');
-    const [sexo, setSexo] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confSenha, setConfSenha] = useState('');
     const [nomeCompleto, setNomeCompleto] = useState('');
-    const [numeroDaCamisa, setNumeroDaCamisa] = useState('');
+    const [mostrarSenha, setMostrarSenha] = useState(false);
+    const [mostrarConfSenha, setMostrarConfSenha] = useState(false);
     const navigate = useNavigate();
     const { exibirMensagem , mensagem, tipoMensagem, visivel, fecharMensagem } = useMensagem();
 
     const cadastrarUsuario = async () => {
         try {
-            const response = await axios.post('https://back-deploy-7q2n.onrender.com/usuarios', {username, sexo, email, senha, confSenha, nomeCompleto, numeroDaCamisa});
+            const response = await axios.post('https://back-deploy-7q2n.onrender.com/usuarios', {
+                username, email, senha, confSenha, nomeCompleto 
+            });
             exibirMensagem(response.data.mensagem || 'Usuário cadastrado com sucesso!', 'sucesso');
             setUserName('');
-            setSexo('');
             setEmail('');
             setSenha('');
             setConfSenha('');
             setNomeCompleto('');
-            setNumeroDaCamisa('');
-            navigate('/usuarios'); // Navegar para a lista de usuários após o cadastro
+            navigate('/usuarios');
         } catch (error) {
             let erroMsg = 'Erro ao conectar ao servidor.';
             if (error.response && error.response.data) {
@@ -70,31 +70,46 @@ function FormularioCadastro() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <input 
-                    type="password"
-                    id="senha"
-                    placeholder="Senha"
-                    value={senha}
-                    onChange={(e) => setSenha(e.target.value)}
-                    required
-                />
-                <input 
-                    type="password"
-                    id="confSenha"
-                    placeholder="Confirmar Senha"
-                    value={confSenha}
-                    onChange={(e) => setConfSenha(e.target.value)}
-                    required
-                />
-                
-               
+
+                {/* Campo de senha com toggle */}
+                <div className="senha-container">
+                    <input 
+                        type={mostrarSenha ? "text" : "password"}
+                        id="senha"
+                        placeholder="Senha"
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
+                        required
+                    />
+                    <span
+                        className="toggle-password"
+                        onClick={() => setMostrarSenha(!mostrarSenha)}
+                    >
+                        {mostrarSenha ? '🙈' : '👁️'}
+                    </span>
+                </div>
+
+                {/* Campo de confirmação de senha com toggle */}
+                <div className="senha-container">
+                    <input 
+                        type={mostrarConfSenha ? "text" : "password"}
+                        id="confSenha"
+                        placeholder="Confirmar Senha"
+                        value={confSenha}
+                        onChange={(e) => setConfSenha(e.target.value)}
+                        required
+                    />
+                    <span
+                        className="toggle-password"
+                        onClick={() => setMostrarConfSenha(!mostrarConfSenha)}
+                    >
+                        {mostrarConfSenha ? '🙈' : '👁️'}
+                    </span>
+                </div>
                 
                 <button type="submit">Cadastrar</button>
             </form>
            
-            <button onClick={() => navigate('/usuarios')} className="link-usuarios">
-                Ver usuários cadastrados
-            </button>
             <button onClick={() => navigate('/')} className="link-pagina-incial">
                Home
             </button>

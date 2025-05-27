@@ -27,9 +27,9 @@ function ListaDeUsuarios() {
             ) : (
                 usuarios.map( usuario => (
                     <li key={usuario.id}>
-                        <strong>Nome: </strong> {usuario.nome}<br />
-                        <strong>Sexo: </strong> {usuario.sexo}<br />
-                        <strong>Idade: </strong> {usuario.idade}<br />
+                        <strong>Nome de Usuario: </strong> {usuario.username}<br />
+                        <strong>Nome Completo: </strong> {usuario.nomeCompleto}<br />
+                        <strong>E-Mail: </strong> {usuario.email}<br />
                         <strong>Altura: </strong> {usuario.altura}<br />
                         <strong>Peso: </strong> {usuario.peso}<br />
                         <strong>Posicão: </strong> {usuario.posicao}<br />
