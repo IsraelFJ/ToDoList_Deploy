@@ -10,7 +10,7 @@ function ListaDeUsuarios() {
     useEffect(() => {
         const carregarUsuarios = async () => {
             try {
-                const response = await axios.get('https://back-deploy-7q2n.onrender.com/usuarios')
+                const response = await axios.get('https://todolist-deploy-vinp.onrender.com')
                 setUsuarios(response.data)
             } catch (error) {
                 alert('Erro ao buscar usuários: ', error)
