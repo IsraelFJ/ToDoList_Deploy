@@ -10,7 +10,7 @@ function ListaDeUsuarios() {
     useEffect(() => {
         const carregarUsuarios = async () => {
             try {
-                const response = await axios.get('https://todolist-deploy-vinp.onrender.com')
+                const response = await axios.get('https://todolist-deploy-vinp.onrender.com/usuarios')
                 setUsuarios(response.data)
             } catch (error) {
                 alert('Erro ao buscar usuários: ', error)
@@ -23,7 +23,7 @@ function ListaDeUsuarios() {
     return (
         <ul id="listaUsurios" className="lista-usuarios">
             {usuarios.length === 0 ? (
-                <li>Nenhum usuário encontrado.</li>
+                <li>Nenhuma Tarefa encontrado.</li>
             ) : (
                 usuarios.map( usuario => (
                     <li key={usuario.id}>

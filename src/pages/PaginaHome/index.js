@@ -12,7 +12,7 @@ function PaginaHome() {
                 <input type="text" placeholder='Login'/>
                 <input type="password" placeholder='Password'/>
 
-                <button onClick={() => navigate('/usuarios')} className='telade login'>
+                <button onClick={() => navigate('/tarefas')} className='telade login'>
                     Login
                 </button>
 
